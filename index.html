@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color: #72708f;">
+    <div style="width: 1024px; margin :auto">
+       <div style="background-color: #81708f;">
+            <table style="width: 100%;">
+            <tr>
+                <td width="120">
+                    <img src="logoundiksha.png" width="100">
+                </td>
+                <td>
+                    <h1 style="margin: 0px;">
+                        Selamat Datang
+                    </h1>
+                    <h4 style="margin: 0px;">Sistem Matematika</h4>
+                    <div align="right" style="padding-right: 10px;">
+                        <a href="logout.html">Logout</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background-color: #dcdcdc; float:left; width: 100%">
+        <div style="width: 30%; float:left;">
+            <div style="padding: 10px;">
+                <b>Menu</b><br>
+            <hr>
+            <a href="#">Home</a><br />
+            <a href="#">Biodata</a><br />
+            <a href="#">Update Biodata</a><br />
+            <a href="#">Contact</a><br />
+        </div>
+    </div>
+
+    <div style="background-color: #EEEE; width:70%;float:right">
+        <div style="padding: 1opx;">
+            <h4 style="margin: 0px;">Update Biodata</h4>
+            <hr/>
+
+            <form method="post" onsubmit="return ValidasiForm()" name="FormReg">
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td><input type="text" name="nama" value="" placeholder="Tuliskan Nama Anda" /><br/>
+                            <small style="color: red" id="err_nim"></small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pilih Bangunan Datar</td>
+                        <td>:</td>
+                        <td>
+                            <input id="1"type="radio" name="bangun" value="Persegi"  checked />Persegi
+                            <input id="2"type="radio" name="bangun" value="BelahKetupat"  checked/>Belah Ketupat 
+                            <input id="3"type="radio" name="bangun" value="Segitiga"   checked/>Segitiga
+                            <br/>
+                            <small style="color: red" id="err_jenis_kelamin"></small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Luas Bangun Datar</td>
+                        <td>:</td>
+                        <td ><p id="nama_bangun">
+                            Persegi
+                        </p>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <hr/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >Panjang</td>
+                        <td>:</td>
+                        <td><input  id="par1" type="number" name="par1" value="0"  placeholder="Hanya Angka" /></td>
+                    </tr>
+                    <tr>
+                        <td>Lebar</td>
+                        <td>:</td>
+                        <td><input  id="par2" type="number" name="par2" value="0"  placeholder="Hanya Angka" /></td>
+                    </tr>
+                    <tr>
+                        <td>Luas</td>
+                        <td>:</td>
+                        <td><input type="number" id="hasilID" name="Hasil" value="0" readonly /><br />
+                            <small style="color: red;" id="err_hasil"></small></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <hr/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="right"><button>Simpan</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+        <div style="background-color: rhb(2, 2, 39); clear:both;text-align:center; padding: 15px">
+        <white color="white">Copyright &#169; Pt. Windra Artha</white>
+    </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    lebar = document.getElementById("par2");
+    panjang = document.getElementById("par1");
+    hasil = document.getElementById("hasilID");
+    persegi = document.getElementById("1");
+    belah = document.getElementById("2");
+    segitiga = document.getElementById("3");
+    namaBangun = document.getElementById("nama_bangun");
+    console.log(persegi.checked);
+    console.log(belah.checked);
+    console.log(segitiga.checked);
+    persegi.addEventListener("click",function(){
+
+        namaBangun.innerHTML="Persegi";
+    })
+    if(persegi.checked==true){
+        Persegi();
+    }
+    belah.addEventListener("click",function(){
+
+        namaBangun.innerHTML="Belah Ketupat";
+        
+    })
+    if(belah.checked==true){
+        Belah();
+    }
+    segitiga.addEventListener("click",function(){
+        namaBangun.innerHTML="Segitiga";
+    })
+    if(segitiga.checked==true){
+        Segitiga();
+    }
+    
+    function Persegi(){
+        lebar.addEventListener("change",function(){
+            hasil.value = parseInt(lebar.value)*parseInt(panjang.value);
+        })
+        panjang.addEventListener("change",function(){
+            hasil.value = parseInt(lebar.value)*parseInt(panjang.value);
+        })
+    }
+    
+    function Belah(){
+        lebar.addEventListener("change",function(){
+            hasil.value = (parseInt(lebar.value)*parseInt(panjang.value))/2;
+        })
+        panjang.addEventListener("change",function(){
+            hasil.value = (parseInt(lebar.value)*parseInt(panjang.value))/2;
+        })
+    }
+    
+    function Segitiga(){
+        lebar.addEventListener("change",function(){
+            hasil.value = (parseInt(lebar.value)*parseInt(panjang.value))/2;
+        })
+        panjang.addEventListener("change",function(){
+            hasil.value = (parseInt(lebar.value)*parseInt(panjang.value))/2;
+        })
+    }
+    
+
+</script>
+</html>
